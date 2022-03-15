@@ -3,9 +3,9 @@
 using System.IO;
 using UnrealBuildTool;
 
-public class AliyunOssCpp : ModuleRules
+public class AliyunOSS : ModuleRules
 {
-	public AliyunOssCpp(ReadOnlyTargetRules Target) : base(Target)
+	public AliyunOSS(ReadOnlyTargetRules Target) : base(Target)
 	{
 		Type = ModuleType.External;
 
@@ -13,9 +13,6 @@ public class AliyunOssCpp : ModuleRules
 		{
             PublicIncludePaths.Add(Path.Combine(ModuleDirectory, "include"));
 
-            // Add the import library
-            // PublicLibraryPaths.Add(Path.Combine(ModuleDirectory, "lib", "Release"));
-            //PublicAdditionalLibraries.Add("alibabacloud-oss-cpp-sdk.lib");
 
             string path = Path.Combine(ModuleDirectory, "lib", "Release", "alibabacloud-oss-cpp-sdk.lib");
 
@@ -26,7 +23,6 @@ public class AliyunOssCpp : ModuleRules
         {
             "libcurl",
             "OpenSSL",
-//           "zlib"
         });
     }
 }

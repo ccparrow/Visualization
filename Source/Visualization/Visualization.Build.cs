@@ -44,8 +44,8 @@ public class Visualization : ModuleRules
                 "WebSockets",
                 "Networking",
                 "AssetRegistry",
-                "AliyunOssCpp",
-                "MariaDBConnectorLibs",
+                "AliyunOSS",
+                "MySQL",
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

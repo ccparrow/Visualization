@@ -4,7 +4,7 @@
 
 #include "Modules/ModuleManager.h"
 
-class VISUAL_API FAliyunOssCppModule : public IModuleInterface
+class VISUAL_API FAliyunOSSModule : public IModuleInterface
 {
 public:
 

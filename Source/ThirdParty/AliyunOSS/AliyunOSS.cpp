@@ -8,14 +8,14 @@
 
 
 
-void FAliyunOssCppModule::StartupModule()
+void FAliyunOSSModule::StartupModule()
 {
 	// This function may be called during shutdown to clean up your module.  For modules that support dynamic reloading,
 // we call this function before unloading the module.
 	FOssClient::InitializeSdk();
 }
 
-void FAliyunOssCppModule::ShutdownModule()
+void FAliyunOSSModule::ShutdownModule()
 {
 	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
 	FOssClient::ShutdownSdk();
@@ -27,4 +27,4 @@ void FAliyunOssCppModule::ShutdownModule()
 	
 
 
-IMPLEMENT_MODULE(FAliyunOssCppModule, AliyunOssCpp)
+IMPLEMENT_MODULE(FAliyunOSSModule, AliyunOss)
