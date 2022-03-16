@@ -12,11 +12,7 @@ public class AliyunOSS : ModuleRules
 		if (Target.Platform == UnrealTargetPlatform.Win64)
 		{
             PublicIncludePaths.Add(Path.Combine(ModuleDirectory, "include"));
-
-
-            string path = Path.Combine(ModuleDirectory, "lib", "Release", "alibabacloud-oss-cpp-sdk.lib");
-
-            PublicAdditionalLibraries.Add(path);
+            PublicAdditionalLibraries.Add(Path.Combine(ModuleDirectory, "lib", "Release", "alibabacloud-oss-cpp-sdk.lib"));
         }
 
         AddEngineThirdPartyPrivateStaticDependencies(Target, new string[]
