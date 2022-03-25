@@ -19,5 +19,5 @@ void FVisualizationModule::ShutdownModule()
 
 #undef LOCTEXT_NAMESPACE
 	
-IMPLEMENT_MODULE(FVisualizationModule, Visual)
+IMPLEMENT_MODULE(FVisualizationModule, Visualization)
 
