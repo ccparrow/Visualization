@@ -1,9 +1,29 @@
-Unreal Engine 4.27 Visualization Plugin
+Unreal Engine 5 Visualization Plugin
 
-Document: https://ccparrow.com/2022/02/22/Visualization/
+Document: https://ccparrow.com/Visualization/
 
 Project add plugins:
 	"Plugins": [
+		{
+			"Name": "ModelingToolsEditorMode",
+			"Enabled": true,
+			"TargetAllowList": [
+				"Editor"
+			]
+		},
+		{
+			"Name": "Bridge",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Mac",
+				"Linux"
+			]
+		},
+		{
+			"Name": "Visualization",
+			"Enabled": true
+		},
 		{
 			"Name": "PixelStreaming",
 			"Enabled": true

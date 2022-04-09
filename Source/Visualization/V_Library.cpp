@@ -321,10 +321,10 @@ void UV_Library::GetBase64Texture(FString Descriptor, UTexture2D*& Texture, bool
 					//创建图片
 					Texture = UTexture2D::CreateTransient(ImageWrapper->GetWidth(), ImageWrapper->GetHeight(), PF_B8G8R8A8);
 					//图片元数据
-					void* TextureData = Texture->PlatformData->Mips[0].BulkData.Lock(LOCK_READ_WRITE);
+					void* TextureData = Texture->GetPlatformData()->Mips[0].BulkData.Lock(LOCK_READ_WRITE);
 					//数据拷贝
 					FMemory::Memcpy(TextureData, (&UncompressedBGRA)->GetData(), (&UncompressedBGRA)->Num());
-					Texture->PlatformData->Mips[0].BulkData.Unlock();
+					Texture->GetPlatformData()->Mips[0].BulkData.Unlock();
 					Texture->UpdateResource();
 					Success = true;
 				}
@@ -545,8 +545,8 @@ void UV_Library::DistanceFieldResoution(UStaticMesh * StaticMesh, int32 Scale)
 		StaticMesh->Modify();
 		for (int32 i = 0; i < StaticMesh->GetSourceModels().Num(); i++)
 		{
-			FStaticMeshSourceModel& Model = StaticMesh->GetSourceModels()[i];
-			Model.BuildSettings.DistanceFieldResolutionScale = Scale;
+			const FStaticMeshSourceModel& Model = StaticMesh->GetSourceModels()[i];
+// 			Model.BuildSettings.DistanceFieldResolutionScale = Scale;
 		}
 		StaticMesh->Build();
 	}

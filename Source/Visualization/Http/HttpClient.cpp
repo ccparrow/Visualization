@@ -121,9 +121,9 @@ void AHttpClient::OnRequestTextureComplete(FHttpRequestPtr HttpRequest, FHttpRes
 					UTexture2D* Texture2D = UTexture2D::CreateTransient(Width, Height, PF_B8G8R8A8);
 					if (Texture2D)
 					{
-						void* TextureData = Texture2D->PlatformData->Mips[0].BulkData.Lock(LOCK_READ_WRITE);
+						void* TextureData = Texture2D->GetPlatformData()->Mips[0].BulkData.Lock(LOCK_READ_WRITE);
 						FMemory::Memcpy(TextureData, RawData.GetData(), RawData.Num());
-						Texture2D->PlatformData->Mips[0].BulkData.Unlock();
+						Texture2D->GetPlatformData()->Mips[0].BulkData.Unlock();
 						Texture2D->UpdateResource();
 						UE_LOG(LogTemp, Error, TEXT("RequestData Success!"));
 						OnRequestTextureDelegate.ExecuteIfBound(Texture2D);
