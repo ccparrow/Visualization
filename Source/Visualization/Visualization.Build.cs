@@ -38,7 +38,7 @@ public class Visualization : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
-               	"JSON",
+               	"Json",
                 "HTTP",
                 "Sockets",
                 "WebSockets",

@@ -537,6 +537,7 @@ void UV_Library::GetIP(FString& IP)
 	UE_LOG(LogTemp, Error, TEXT("GetIP False!"));
 }
 
+/*
 void UV_Library::DistanceFieldResoution(UStaticMesh * StaticMesh, int32 Scale)
 {
 #if WITH_EDITOR
@@ -552,6 +553,7 @@ void UV_Library::DistanceFieldResoution(UStaticMesh * StaticMesh, int32 Scale)
 	}
 #endif
 }
+*/
 
 void  UV_Library::GetArea(TArray<FVector> Points, float& M2)
 {

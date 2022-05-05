@@ -141,10 +141,6 @@ class UV_Library : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintPure, Category = V_Library, meta = (Keywords = IP))
 		static void GetIP(FString& IP);
 
-	//修改模型距离场（Editor）
-	UFUNCTION(BlueprintCallable, Category = V_Library, meta = (Keywords = DFR))
-		static void DistanceFieldResoution(UStaticMesh* StaticMesh, int32 Scale = 1);
-
 	//测量面积
 	UFUNCTION(BlueprintCallable, Category = V_Library, meta = (Keywords = area))
 		static void GetArea(TArray<FVector> Points, float& M2);
