@@ -46,14 +46,33 @@ public:
 			{
 				for (int i = 0; i < JsonValueArray->Num(); i++)
 				{
-					TSharedPtr<FJsonObject> JsonRef = (*JsonValueArray)[i]->AsObject();
 					FString ValueRef;
-					TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&ValueRef);
-					FJsonSerializer::Serialize(JsonRef.ToSharedRef(), Writer);
+					//3.判断如果为数组的数组，则合并为字符串，逗号隔开
+					if ((*JsonValueArray)[i]->AsArray().Num() > 0 )
+					{
+						for (int a = 0; a < (*JsonValueArray)[i]->AsArray().Num(); a++)
+						{
+							if (a == 0)
+							{
+								ValueRef = (*JsonValueArray)[i]->AsArray()[a]->AsString();
+							}
+							else
+							{
+								ValueRef += "," + (*JsonValueArray)[i]->AsArray()[a]->AsString();
+							}
+						}
+						UE_LOG(LogTemp, Warning, TEXT("ArrayArray"));
+					}
+					else
+					{
+						TSharedPtr<FJsonObject> JsonRef = (*JsonValueArray)[i]->AsObject();
+						TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&ValueRef);
+						FJsonSerializer::Serialize(JsonRef.ToSharedRef(), Writer);
+						UE_LOG(LogTemp, Warning, TEXT("JsonArray"));
+					}
 					Value.Add(ValueRef);
 				}
 				Success = true;
-				return;
 			}
 		}
 	}

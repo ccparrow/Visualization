@@ -21,7 +21,7 @@ public:
 	UAsyncHttp();
 	/*
 	 * url: 
-	 * contnet: if POST
+	 * content: if POST
 	 * verb: GET,POST,PUT,DELETE,CUSTOM
 	 * contentType: application/json,application/octet-stream,application/x-www-form-urlencoded
 	 */
