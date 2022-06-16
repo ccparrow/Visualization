@@ -140,10 +140,18 @@ class UV_Library : public UBlueprintFunctionLibrary
 	//本机IP
 	UFUNCTION(BlueprintPure, Category = V_Library, meta = (Keywords = IP))
 		static void GetIP(FString& IP);
+	//本机MAC
+    UFUNCTION(BlueprintPure, Category = V_Library, meta = (Keywords = macAdress))
+		static FString getMacAddress();
 
 	//测量面积
 	UFUNCTION(BlueprintCallable, Category = V_Library, meta = (Keywords = area))
 		static void GetArea(TArray<FVector> Points, float& M2);
+
+	//cmd
+	UFUNCTION(BlueprintCallable, Exec)
+		static void cmd(FString command);
+	
 };
 
 

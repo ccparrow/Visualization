@@ -556,6 +556,11 @@ void UV_Library::GetIP(FString& IP)
 	UE_LOG(LogTemp, Error, TEXT("GetIP False!"));
 }
 
+FString UV_Library::getMacAddress()
+{
+	return FGenericPlatformMisc::GetMacAddressString();
+}
+
 /*
 void UV_Library::DistanceFieldResoution(UStaticMesh * StaticMesh, int32 Scale)
 {
@@ -589,4 +594,10 @@ void  UV_Library::GetArea(TArray<FVector> Points, float& M2)
 	}
 }
 
+void UV_Library::cmd(FString command)
+{
+	const char* charString = TCHAR_TO_ANSI(*command);
+	system(charString);
+	UE_LOG( VisualizationLOG, Warning, TEXT( "cmd: %s" ), *command );
+}
 
