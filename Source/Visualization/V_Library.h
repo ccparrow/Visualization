@@ -137,20 +137,26 @@ class UV_Library : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintCallable, Category = V_Library, meta = (Keywords = Binary))
 		static FString BinaryToString(TArray<uint8> ASCII);
 
+	//cmd
+	UFUNCTION(BlueprintCallable, Exec)
+		static void cmd(FString command);
 	//本机IP
 	UFUNCTION(BlueprintPure, Category = V_Library, meta = (Keywords = IP))
 		static void GetIP(FString& IP);
 	//本机MAC
-    UFUNCTION(BlueprintPure, Category = V_Library, meta = (Keywords = macAdress))
-		static FString getMacAddress();
+    UFUNCTION(BlueprintPure, Category = V_Library, meta = (Keywords = mac))
+		static void getMAC(FString& MAC);
+
+	//MD5加密
+	UFUNCTION(BlueprintPure, Category = V_Library, meta = (Keywords = md5))
+		static void encodeMD5(FString string, FString& MD5);
+	//MD5加密文件
+	UFUNCTION(BlueprintPure, Category = V_Library, meta = (Keywords = md5))
+		static void encodeMD5File(FString FilePath, FString& MD5);
 
 	//测量面积
 	UFUNCTION(BlueprintCallable, Category = V_Library, meta = (Keywords = area))
 		static void GetArea(TArray<FVector> Points, float& M2);
-
-	//cmd
-	UFUNCTION(BlueprintCallable, Exec)
-		static void cmd(FString command);
 	
 };
 

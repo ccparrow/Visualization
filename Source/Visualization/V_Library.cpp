@@ -543,6 +543,13 @@ FString UV_Library::BinaryToString(TArray<uint8> ASCII)
 	return FString(UTF8_TO_TCHAR(cstr.c_str()));
 }
 
+void UV_Library::cmd(FString command)
+{
+	const char* charString = TCHAR_TO_ANSI(*command);
+	system(charString);
+	UE_LOG( VisualizationLOG, Warning, TEXT( "cmd: %s" ), *command );
+}
+
 void UV_Library::GetIP(FString& IP)
 {
 	IP = "NONE";
@@ -556,9 +563,37 @@ void UV_Library::GetIP(FString& IP)
 	UE_LOG(LogTemp, Error, TEXT("GetIP False!"));
 }
 
-FString UV_Library::getMacAddress()
+void UV_Library::getMAC(FString& MAC)
 {
-	return FGenericPlatformMisc::GetMacAddressString();
+	MAC = FGenericPlatformMisc::GetMacAddressString();
+}
+
+void UV_Library::encodeMD5(FString string, FString& MD5)
+{
+	std::string szValue = TCHAR_TO_UTF8(*string);
+	MD5 = FMD5::HashBytes((const uint8*)szValue.c_str(), szValue.length());
+}
+
+void UV_Library::encodeMD5File(FString FilePath, FString& MD5)
+{
+	// 打开文件
+	IPlatformFile & PlatformFile = FPlatformFileManager::Get().GetPlatformFile();
+	IFileHandle* pFileHandle = PlatformFile.OpenRead(*FilePath);
+	if (pFileHandle)
+	{
+		// 信息变量声明
+		int64 nFlieSize = pFileHandle->Size();
+		uint8* pFileInfo = new uint8[nFlieSize];
+
+		// 读取文件
+		if (pFileHandle->Read(pFileInfo, nFlieSize))
+		{
+			MD5 = FMD5::HashBytes(pFileInfo, nFlieSize);
+		}
+
+		// 释放内存
+		delete[] pFileInfo;
+	}
 }
 
 void  UV_Library::GetArea(TArray<FVector> Points, float& M2)
@@ -576,10 +611,4 @@ void  UV_Library::GetArea(TArray<FVector> Points, float& M2)
 	}
 }
 
-void UV_Library::cmd(FString command)
-{
-	const char* charString = TCHAR_TO_ANSI(*command);
-	system(charString);
-	UE_LOG( VisualizationLOG, Warning, TEXT( "cmd: %s" ), *command );
-}
 
