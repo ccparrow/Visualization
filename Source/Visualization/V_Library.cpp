@@ -561,24 +561,6 @@ FString UV_Library::getMacAddress()
 	return FGenericPlatformMisc::GetMacAddressString();
 }
 
-/*
-void UV_Library::DistanceFieldResoution(UStaticMesh * StaticMesh, int32 Scale)
-{
-#if WITH_EDITOR
-	if (StaticMesh && StaticMesh->GetSourceModels().Num() > 0)
-	{
-		StaticMesh->Modify();
-		for (int32 i = 0; i < StaticMesh->GetSourceModels().Num(); i++)
-		{
-			const FStaticMeshSourceModel& Model = StaticMesh->GetSourceModels()[i];
-// 			Model.BuildSettings.DistanceFieldResolutionScale = Scale;
-		}
-		StaticMesh->Build();
-	}
-#endif
-}
-*/
-
 void  UV_Library::GetArea(TArray<FVector> Points, float& M2)
 {
 	int pointNum = Points.Num();

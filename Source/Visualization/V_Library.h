@@ -39,14 +39,14 @@ class UV_Library : public UBlueprintFunctionLibrary
 
 	
 	//是否开发
-	UFUNCTION(BlueprintPure, Category = VisualCPPLibrary, meta = (Keywords = editor, CompactNodeTitle = Edit))
+	UFUNCTION(BlueprintPure, Category = V_Library, meta = (Keywords = editor, CompactNodeTitle = Edit))
 		static bool Editor();
 	//是否开发
-	UFUNCTION(BlueprintCallable, Category = VisualCPPLibrary, meta = (Keywords = editor, ExpandEnumAsExecs = "Result"))
+	UFUNCTION(BlueprintCallable, Category = V_Library, meta = (Keywords = editor, ExpandEnumAsExecs = "Result"))
 		static void IsEditor(eResult& Result);
 
 	//打印到屏幕（仅编辑）和日志
-	UFUNCTION(BlueprintCallable, Category = VisualCPPLibrary, meta = (Keywords = print, AdvancedDisplay = "2"))
+	UFUNCTION(BlueprintCallable, Category = V_Library, meta = (Keywords = print, AdvancedDisplay = "2"))
 		static void PrintTo(FString String = TEXT("Visualization"), float Duration = 10.0f, bool bScreen = true, bool bLog = true,
 			float Scale = 1.1f, FLinearColor Color = FLinearColor(0, 1, 1, 1), 
 			eLogType Type = eLogType::Warning);
