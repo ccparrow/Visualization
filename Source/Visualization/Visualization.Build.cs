@@ -42,6 +42,7 @@ public class Visualization : ModuleRules
                 "HTTP",
                 "Sockets",
                 "WebSockets",
+                "WebSocketNetworking",
                 "Networking",
                 "AssetRegistry",
                 "AliyunOSS",
