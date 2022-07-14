@@ -40,6 +40,7 @@ public class Visualization : ModuleRules
 				"SlateCore",
                	"Json",
                 "HTTP",
+                "HTTPServer",
                 "Sockets",
                 "WebSockets",
                 "WebSocketNetworking",
